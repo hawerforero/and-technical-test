@@ -1,0 +1,46 @@
+<h1>Listado de activos</h1>
+
+<p *ngIf="!activos"><em>Loading...</em></p>
+<div class="row">
+  <div class="col-md-offset-10 col-md-12">
+    <a class="btn btn-primary" [routerLink]="['/activo-create']">Crear activo</a>&nbsp;
+    <a class="btn btn-primary" [routerLink]="['/movimiento-list']">Gestionar movimientos</a>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="alert alert-danger" *ngIf="errorMsg">
+    {{errorMsg}}
+  </div>
+  <table class='table table-striped' *ngIf="activos">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Serial</th>
+        <th>Valor compra</th>
+        <th>Fecha compra</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let activo of activos">
+        <td>{{ activo.id }}</td>
+        <td>{{ activo.nombre }}</td>
+        <td>{{ activo.descripcion }}</td>
+        <td>{{ activo.serial }}</td>
+        <td>{{ activo.valor }}</td>
+        <td>{{ activo.fecha }}</td>
+        <td>{{ activo.estado}}</td>
+        <td>
+          <a class="btn btn-info" [routerLink]="['/activo-details/', activo.id]">Detalle</a>&nbsp;
+          <a class="btn btn-warning" [routerLink]="['/activo-edit/', activo.id]">Editar</a>&nbsp;
+          <button class="btn btn-danger" (click)="deleteActivo(activo.id)">Eliminar</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

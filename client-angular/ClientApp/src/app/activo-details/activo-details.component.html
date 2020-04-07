@@ -1,0 +1,62 @@
+<p *ngIf="!activo"><em>Loading...</em></p>
+<div class="well">
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Id:</strong>
+    </div>
+    <div class="col-md-3">
+      {{ activo.id }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Nombre:</strong>
+    </div>
+    <div class="col-md-3">
+      {{ activo.nombre }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Descripción:</strong>
+    </div>
+    <div class="col-md-3">
+      {{ activo.descripcion }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <strong>Serial:</strong>
+    </div>
+    <div class="col-md-3">
+      {{ activo.serial }}
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Valor compra:</strong>
+      </div>
+      <div class="col-md-3">
+        {{ activo.valor }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Fecha compra:</strong>
+      </div>
+      <div class="col-md-3">
+        {{ activo.fecha }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <strong>Estado:</strong>
+      </div>
+      <div class="col-md-3">
+        {{ activo.estado }}
+      </div>
+    </div>
+  </div>
+  <br />
+  <a class="btn btn-info" [routerLink]='["/activo-list"]'>Regresar</a>
+

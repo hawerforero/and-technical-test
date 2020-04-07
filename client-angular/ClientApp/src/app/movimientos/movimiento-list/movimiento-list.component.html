@@ -1,0 +1,38 @@
+<h1>Listado de movimientos</h1>
+
+<p *ngIf="!movimientos"><em>Loading...</em></p>
+<div class="row">
+  <div class="col-md-offset-10 col-md-6">
+    <a class="btn btn-primary" [routerLink]="['/movimiento-create']">Crear movimiento</a>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="alert alert-danger" *ngIf="errorMsg">
+    {{errorMsg}}
+  </div>
+  <table class='table table-striped' *ngIf="movimientos">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Fecha</th>
+        <th>Tipo movimiento</th>
+        <th>Activo</th>
+        <th>Persona</th>
+        <th>Area</th>
+        <th>Observación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movimiento of movimientos">
+        <td>{{ movimiento.id }}</td>
+        <td>{{ movimiento.fecha }}</td>
+        <td>{{ movimiento.tipoMovimiento.nombre }}</td>
+        <td>{{ movimiento.activo.nombre }}</td>
+        <td><p *ngIf="movimiento.persona">{{ movimiento.persona.nombre}}</p></td>
+        <td><p *ngIf="movimiento.area">{{ movimiento.area.nombre }}</p></td>
+        <td>{{ movimiento.observacion }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
